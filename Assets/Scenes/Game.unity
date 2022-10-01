@@ -918,6 +918,8 @@ MonoBehaviour:
     _probability: 1
   - _name: grass
     _probability: 0.5
+  - _name: stone
+    _probability: 0.2
   _seed: seed
   _perlinScale: 0.1
 --- !u!4 &2071574859
