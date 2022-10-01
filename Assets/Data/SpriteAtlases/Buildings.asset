@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d72cf7517a452482c208c9a3bb7f07, type: 3}
+  m_Name: Buildings
+  m_EditorClassIdentifier: 
+  _texture: {fileID: 2800000, guid: ca9487d4f90a52e4181779530518e95e, type: 3}
+  _jsonFile: {fileID: 4900000, guid: 4e27255fa21026c48884e2ef99ddb3b6, type: 3}
+  _pivot: {x: 0.5, y: 0}

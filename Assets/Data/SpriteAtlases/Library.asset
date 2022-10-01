@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7662ad9c5342a197d17357b963898a, type: 3}
+  m_Name: Library
+  m_EditorClassIdentifier: 
+  _groundAtlas: {fileID: 11400000, guid: 4ba61e0199898ae45bb9d4ff209bb00d, type: 2}
+  _buildingAtlas: {fileID: 11400000, guid: f0648d7ffbb47c244afd0094c313484b, type: 2}
+  _characterAtlas: {fileID: 11400000, guid: e7b092706ec33954596e47369ff0bd87, type: 2}
