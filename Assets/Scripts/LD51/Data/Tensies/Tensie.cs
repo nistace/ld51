@@ -1,4 +1,5 @@
 ﻿using LD51.Data.GameResources;
+using LD51.Data.Misc;
 using UnityEngine;
 
 namespace LD51.Data.Tensies {
@@ -6,6 +7,7 @@ namespace LD51.Data.Tensies {
 		[SerializeField] protected SpriteRenderer   _renderer;
 		[SerializeField] protected Collider2D       _collider;
 		[SerializeField] protected TensieInteractor _interactor;
+		[SerializeField] protected TensieInfoUi     _infoUi;
 		[SerializeField] protected int              _modelIndex;
 		[SerializeField] protected bool             _ghost;
 		[SerializeField] protected bool             _selected;
@@ -49,15 +51,25 @@ namespace LD51.Data.Tensies {
 		}
 
 		private void Update() {
+			if (GameTime.justStartedNewLoop) inventory.Clear();
 			var keyFrame = controller?.GetKeyFrame();
+			ITensieInteractable interactable = null;
 			if (keyFrame != null) {
-				//	transform.position = keyFrame.position;
 				interactor.SetDirection(keyFrame.direction);
-				if (keyFrame.interacting && interactor.TryGetInteractable(out var interactable)) {
+				if (keyFrame.interacting && interactor.TryGetInteractable(out interactable)) {
 					interactable.ContinueInteraction(this, ref _progress);
 				}
 			}
+			if ((!keyFrame?.interacting ?? true) || interactable == null) _progress = 0;
+			RefreshInfoUi(keyFrame?.interacting ?? false, interactable);
 			RefreshVisuals();
+		}
+
+		private void RefreshInfoUi(bool tryingToInteract, ITensieInteractable interactable) {
+			if (tryingToInteract && interactable != null) _infoUi.progress.Show(interactable.GetActionIcon(), _progress / interactable.GetRequiredTime());
+			else _infoUi.progress.Hide();
+			_infoUi.SetQuestionMarkVisible(tryingToInteract && interactable == null);
+			_infoUi.inventory.Refresh(inventory);
 		}
 	}
 }

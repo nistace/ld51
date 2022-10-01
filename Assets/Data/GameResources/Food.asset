@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebab1e75e6e44931adb23c01ff523346, type: 3}
   m_Name: Food
   m_EditorClassIdentifier: 
+  _food: 1
+  _constructionMaterial: 0

@@ -10,17 +10,20 @@ namespace LD51.Data {
 		[SerializeField] protected SpriteAtlas _groundAtlas;
 		[SerializeField] protected SpriteAtlas _buildingAtlas;
 		[SerializeField] protected SpriteAtlas _characterAtlas;
+		[SerializeField] protected SpriteAtlas _resourcesAtlas;
 
-		public static SpriteAtlas grounds    => instance._groundAtlas;
-		public static SpriteAtlas buildings  => instance._buildingAtlas;
-		public static SpriteAtlas characters => instance._characterAtlas;
-		public static bool        loaded     { get; private set; }
+		public static SpriteAtlas grounds        => instance._groundAtlas;
+		public static SpriteAtlas buildings      => instance._buildingAtlas;
+		public static SpriteAtlas characters     => instance._characterAtlas;
+		public static SpriteAtlas resourcesAtlas => instance._resourcesAtlas;
+		public static bool        loaded         { get; private set; }
 
 		public IEnumerator BuildAll() {
 			loaded = false;
 			yield return CoroutineRunner.Run(_groundAtlas.Build());
 			yield return CoroutineRunner.Run(_buildingAtlas.Build());
 			yield return CoroutineRunner.Run(_characterAtlas.Build());
+			yield return CoroutineRunner.Run(_resourcesAtlas.Build());
 			loaded = true;
 		}
 	}

@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LD51.Data.Misc;
 using UnityEngine;
 
 namespace LD51.Data.Tensies {
 	[Serializable]
 	public class TensieActionData {
 		[SerializeField] protected List<KeyFrame> _frames = new List<KeyFrame>();
+
+		public void CopyFrom(TensieActionData data) {
+			_frames.Clear();
+			_frames.AddRange(data._frames);
+		}
 
 		public void Clear() {
 			_frames.Clear();

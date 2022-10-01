@@ -1,0 +1,160 @@
+{ "frames": [
+   {
+    "filename": "house.default.0",
+    "frame": { "x": 1, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "tree.default.0",
+    "frame": { "x": 60, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "bush.default.0",
+    "frame": { "x": 119, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "granary.default.0",
+    "frame": { "x": 178, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "depot.default.0",
+    "frame": { "x": 237, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "house.white-outline.0",
+    "frame": { "x": 296, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "tree.white-outline.0",
+    "frame": { "x": 355, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "bush.white-outline.0",
+    "frame": { "x": 414, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "granary.white-outline.0",
+    "frame": { "x": 473, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "depot.white-outline.0",
+    "frame": { "x": 532, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "house.blue-outline.0",
+    "frame": { "x": 591, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "tree.blue-outline.0",
+    "frame": { "x": 650, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "bush.blue-outline.0",
+    "frame": { "x": 709, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "granary.blue-outline.0",
+    "frame": { "x": 768, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   },
+   {
+    "filename": "depot.blue-outline.0",
+    "frame": { "x": 827, "y": 1, "w": 57, "h": 41 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 4, "y": 23, "w": 57, "h": 41 },
+    "sourceSize": { "w": 64, "h": 64 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "worldObjects.png",
+  "format": "RGBA8888",
+  "size": { "w": 1024, "h": 43 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "default", "from": 0, "to": 0, "direction": "forward" },
+   { "name": "white-outline", "from": 1, "to": 1, "direction": "forward" },
+   { "name": "blue-outline", "from": 2, "to": 2, "direction": "forward" }
+  ],
+  "layers": [
+   { "name": "house", "opacity": 255, "blendMode": "normal" },
+   { "name": "tree", "opacity": 255, "blendMode": "normal" },
+   { "name": "bush", "opacity": 255, "blendMode": "normal" },
+   { "name": "granary", "opacity": 255, "blendMode": "normal" },
+   { "name": "depot", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

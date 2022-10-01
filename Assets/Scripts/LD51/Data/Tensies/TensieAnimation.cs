@@ -4,6 +4,10 @@
 		WalkUp,
 		WalkLeft,
 		WalkDown,
-		WalkRight
+		WalkRight,
+		KickUp,
+		KickLeft,
+		KickDown,
+		KickRight
 	}
 }

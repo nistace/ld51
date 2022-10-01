@@ -19,12 +19,13 @@ namespace LD51.Data.GameResources {
 			if (progress > _harvestTime) {
 				actor.inventory.Add(_resource, 1);
 				_amount--;
-				Debug.Log("Gave 1 " + _resource);
 				progress %= _harvestTime;
 			}
 		}
 
 		public void SetHovered(bool hovered) => _worldObject.SetHovered(hovered);
 		public TensieAnimation GetTensieUpAnimation() => _tensieUpAnimation;
+		public Sprite GetActionIcon() => SpriteAtlasLibrary.resourcesAtlas[_resource.layerName]["black_outline"][0];
+		public float GetRequiredTime() => _harvestTime;
 	}
 }

@@ -107,5 +107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _worldObject: {fileID: 5833866950963781376}
   _resource: {fileID: 11400000, guid: 34631536b3682f741b2c55616a2f005c, type: 2}
-  _amount: 50
-  _harvestTime: 0.5
+  _amount: 80
+  _harvestTime: 1
+  _tensieUpAnimation: 5

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d72cf7517a452482c208c9a3bb7f07, type: 3}
   m_Name: Buildings
   m_EditorClassIdentifier: 
-  _texture: {fileID: 2800000, guid: ca9487d4f90a52e4181779530518e95e, type: 3}
-  _jsonFile: {fileID: 4900000, guid: 4e27255fa21026c48884e2ef99ddb3b6, type: 3}
+  _texture: {fileID: 2800000, guid: a5804d96867e7634eb1f79c2a29e93f1, type: 3}
+  _jsonFile: {fileID: 4900000, guid: 7f1f513c111ddf140ae95adc8292fd2b, type: 3}
   _pivot: {x: 0.5, y: 0}

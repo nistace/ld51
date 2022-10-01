@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using LD51.Data;
+using LD51.Data.Misc;
 using LD51.Menu.Ui;
 using UnityEngine;
 using UnityEngine.SceneManagement;

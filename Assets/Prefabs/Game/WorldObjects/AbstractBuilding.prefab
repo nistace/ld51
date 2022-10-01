@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2055043372773875828}
   - component: {fileID: 2802265251162239004}
   - component: {fileID: 2317552240857522409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3502138992548761361}
   - component: {fileID: 3502138992548761363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AbstractBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f69cdd2abcf424abac047e3c64e70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _layerName: 
   _renderer: {fileID: 2802265251162239004}
   _hovered: 0
   _selected: 0

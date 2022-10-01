@@ -108,5 +108,5 @@ MonoBehaviour:
   _worldObject: {fileID: 6923748257076668396}
   _resource: {fileID: 11400000, guid: d28f5d803e67a3f4993b3c46f4019fb2, type: 2}
   _amount: 50
-  _harvestTime: 0.5
-  _tensieUpAnimation: 1
+  _harvestTime: 1.5
+  _tensieUpAnimation: 5

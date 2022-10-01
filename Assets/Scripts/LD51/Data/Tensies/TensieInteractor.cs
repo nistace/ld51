@@ -13,17 +13,18 @@ namespace LD51.Data.Tensies {
 
 		public void OnTriggerEnter2D(Collider2D col) {
 			if (_currentInteractableGameObject == col.gameObject) return;
-			interactable?.SetHovered(false);
+			if (_showsHover) interactable?.SetHovered(false);
 			_currentInteractableGameObject = col.gameObject;
 			interactable = _currentInteractableGameObject.GetComponent<ITensieInteractable>();
-			interactable?.SetHovered(_showsHover);
+			if (_showsHover) interactable?.SetHovered(true);
 			_progress = 0;
 		}
 
 		public void OnTriggerExit2D(Collider2D other) {
 			if (other.gameObject != _currentInteractableGameObject) return;
-			interactable?.SetHovered(false);
+			if (_showsHover) interactable?.SetHovered(false);
 			interactable = null;
+			_currentInteractableGameObject = null;
 			_progress = 0;
 		}
 

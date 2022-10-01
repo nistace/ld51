@@ -3,7 +3,7 @@ using UnityEngine;
 using Utils.Extensions;
 using Utils.Types;
 
-namespace LD51.Data {
+namespace LD51.Data.Misc {
 	[RequireComponent(typeof(Camera))]
 	public class GameCamera : MonoBehaviour {
 		public static GameCamera main { get; private set; }
