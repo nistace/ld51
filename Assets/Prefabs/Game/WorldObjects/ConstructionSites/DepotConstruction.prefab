@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: _layerName
       value: depot
       objectReference: {fileID: 0}
+    - target: {fileID: 4436458967076870113, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _widthInCells
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4436458967076870115, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -86,6 +90,14 @@ PrefabInstance:
     - target: {fileID: 4436458967076870115, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870720807757695751, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: m_Size.x
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005055650535698386, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5172431990701916330, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_AnchorMax.y
@@ -149,11 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _requiredResources.Array.data[0]._amount
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _requiredResources.Array.data[1]._amount
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _requiredResources.Array.data[0]._resource

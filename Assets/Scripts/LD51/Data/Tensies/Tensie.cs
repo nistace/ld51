@@ -18,12 +18,13 @@ namespace LD51.Data.Tensies {
 		[SerializeField] protected Inventory        _inventory = new Inventory();
 		[SerializeField] protected float            _progress;
 
-		public  ITensieController controller { get; set; }
-		public  TensieActionData  actionData => _actionData;
-		public  TensieSharedData  data       => _data;
-		public  Inventory         inventory  => _inventory;
-		public  TensieInteractor  interactor => _interactor;
-		private TensieAnimation   animation  { get; set; } = TensieAnimation.Idle;
+		private bool              didActionLastLoop { get; set; } = true;
+		public  ITensieController controller        { get; set; }
+		public  TensieActionData  actionData        => _actionData;
+		public  TensieSharedData  data              => _data;
+		public  Inventory         inventory         => _inventory;
+		public  TensieInteractor  interactor        => _interactor;
+		private TensieAnimation   animation         { get; set; } = TensieAnimation.Idle;
 
 		public void SetGhost(bool ghost) {
 			_ghost = ghost;
@@ -34,6 +35,7 @@ namespace LD51.Data.Tensies {
 		public void SetSelected(bool selected) => _selected = selected;
 
 		private void RefreshVisuals() {
+			if (!SpriteAtlasLibrary.loaded) return;
 			_renderer.color = _ghost ? _data.ghostColor : Color.white;
 			_renderer.sprite = SpriteAtlasLibrary.characters[GetLayerName()][$"{animation}"][GameTime.animationFrame];
 		}
@@ -45,13 +47,23 @@ namespace LD51.Data.Tensies {
 		}
 
 		private void Update() {
-			if (GameTime.justStartedNewLoop) inventory.Clear();
+			if (GameTime.justStartedNewLoop) {
+				inventory.Clear();
+				if (!didActionLastLoop && controller != null && !controller.IsAliveEvenWhenNoActionPerformed()) {
+					Destroy(gameObject);
+					return;
+				}
+				didActionLastLoop = false;
+			}
 			var keyFrame = controller?.GetKeyFrame();
 			ITensieInteractable interactedWith = null;
 			if (keyFrame != null) {
 				interactor.SetDirection(keyFrame.direction);
 				if (keyFrame.interacting && interactor.TryGetInteractable(out var interactable)) {
-					if (interactable.ContinueInteraction(this, ref _progress)) interactedWith = interactable;
+					if (interactable.ContinueInteraction(this, ref _progress)) {
+						interactedWith = interactable;
+						didActionLastLoop = true;
+					}
 				}
 			}
 			if ((!keyFrame?.interacting ?? true) || interactedWith == null) _progress = 0;

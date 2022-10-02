@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: _layerName
       value: depot
       objectReference: {fileID: 0}
+    - target: {fileID: 3502138992548761363, guid: cdcee89f9347bb14fa182bcd66bb06a0, type: 3}
+      propertyPath: _widthInCells
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3504391513937637752, guid: cdcee89f9347bb14fa182bcd66bb06a0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

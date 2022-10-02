@@ -105,6 +105,61 @@ namespace LD51.Inputs
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""6c308fcb-b9e3-42cc-8975-8971abe4088a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""201f7ff3-b4c9-46cc-9e59-d6869e43e381"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""24e79248-9b37-484d-8746-c1248bd74e42"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b660d859-04e9-4ea4-9fa4-b397a672b3c9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""39ad5242-643e-453a-854a-794a523ca668"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""8823c620-3fd7-42f4-b2ff-690a3da274c4"",
                     ""path"": ""<Mouse>/scroll"",
@@ -261,6 +316,113 @@ namespace LD51.Inputs
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df2acbd8-3dd3-486e-80b2-884b49d2544f"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Construction"",
+            ""id"": ""486b46a0-ee4f-49df-98bd-e0c080207e71"",
+            ""actions"": [
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""9c1f8773-2982-4880-a673-bb9e130a1aed"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Place"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee20aade-e17c-4628-9a9a-524345a96c6a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2fd6140-442a-431a-850b-44115f5105ab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2a0f1b26-1cfd-4849-9f07-d7a20d661449"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a21ad248-72e4-4686-b238-0ad8c840b3c9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92eef591-1ca5-4c42-9eb8-9d123f4b62a4"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PrepareTensie"",
+            ""id"": ""384e3fff-366e-4751-89de-48ce6a98f96d"",
+            ""actions"": [
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf8ea876-dd0c-424d-9e1f-d3158592ee54"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b017eee7-f8aa-4081-a14b-bdbe147440c3"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -275,6 +437,14 @@ namespace LD51.Inputs
             m_Tensie = asset.FindActionMap("Tensie", throwIfNotFound: true);
             m_Tensie_Move = m_Tensie.FindAction("Move", throwIfNotFound: true);
             m_Tensie_Interact = m_Tensie.FindAction("Interact", throwIfNotFound: true);
+            // Construction
+            m_Construction = asset.FindActionMap("Construction", throwIfNotFound: true);
+            m_Construction_Aim = m_Construction.FindAction("Aim", throwIfNotFound: true);
+            m_Construction_Place = m_Construction.FindAction("Place", throwIfNotFound: true);
+            m_Construction_Cancel = m_Construction.FindAction("Cancel", throwIfNotFound: true);
+            // PrepareTensie
+            m_PrepareTensie = asset.FindActionMap("PrepareTensie", throwIfNotFound: true);
+            m_PrepareTensie_Cancel = m_PrepareTensie.FindAction("Cancel", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -412,6 +582,88 @@ namespace LD51.Inputs
             }
         }
         public TensieActions @Tensie => new TensieActions(this);
+
+        // Construction
+        private readonly InputActionMap m_Construction;
+        private IConstructionActions m_ConstructionActionsCallbackInterface;
+        private readonly InputAction m_Construction_Aim;
+        private readonly InputAction m_Construction_Place;
+        private readonly InputAction m_Construction_Cancel;
+        public struct ConstructionActions
+        {
+            private @Controls m_Wrapper;
+            public ConstructionActions(@Controls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Aim => m_Wrapper.m_Construction_Aim;
+            public InputAction @Place => m_Wrapper.m_Construction_Place;
+            public InputAction @Cancel => m_Wrapper.m_Construction_Cancel;
+            public InputActionMap Get() { return m_Wrapper.m_Construction; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(ConstructionActions set) { return set.Get(); }
+            public void SetCallbacks(IConstructionActions instance)
+            {
+                if (m_Wrapper.m_ConstructionActionsCallbackInterface != null)
+                {
+                    @Aim.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnAim;
+                    @Aim.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnAim;
+                    @Aim.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnAim;
+                    @Place.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnPlace;
+                    @Place.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnPlace;
+                    @Place.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnPlace;
+                    @Cancel.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnCancel;
+                    @Cancel.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnCancel;
+                    @Cancel.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnCancel;
+                }
+                m_Wrapper.m_ConstructionActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Aim.started += instance.OnAim;
+                    @Aim.performed += instance.OnAim;
+                    @Aim.canceled += instance.OnAim;
+                    @Place.started += instance.OnPlace;
+                    @Place.performed += instance.OnPlace;
+                    @Place.canceled += instance.OnPlace;
+                    @Cancel.started += instance.OnCancel;
+                    @Cancel.performed += instance.OnCancel;
+                    @Cancel.canceled += instance.OnCancel;
+                }
+            }
+        }
+        public ConstructionActions @Construction => new ConstructionActions(this);
+
+        // PrepareTensie
+        private readonly InputActionMap m_PrepareTensie;
+        private IPrepareTensieActions m_PrepareTensieActionsCallbackInterface;
+        private readonly InputAction m_PrepareTensie_Cancel;
+        public struct PrepareTensieActions
+        {
+            private @Controls m_Wrapper;
+            public PrepareTensieActions(@Controls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Cancel => m_Wrapper.m_PrepareTensie_Cancel;
+            public InputActionMap Get() { return m_Wrapper.m_PrepareTensie; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(PrepareTensieActions set) { return set.Get(); }
+            public void SetCallbacks(IPrepareTensieActions instance)
+            {
+                if (m_Wrapper.m_PrepareTensieActionsCallbackInterface != null)
+                {
+                    @Cancel.started -= m_Wrapper.m_PrepareTensieActionsCallbackInterface.OnCancel;
+                    @Cancel.performed -= m_Wrapper.m_PrepareTensieActionsCallbackInterface.OnCancel;
+                    @Cancel.canceled -= m_Wrapper.m_PrepareTensieActionsCallbackInterface.OnCancel;
+                }
+                m_Wrapper.m_PrepareTensieActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Cancel.started += instance.OnCancel;
+                    @Cancel.performed += instance.OnCancel;
+                    @Cancel.canceled += instance.OnCancel;
+                }
+            }
+        }
+        public PrepareTensieActions @PrepareTensie => new PrepareTensieActions(this);
         public interface ICameraActions
         {
             void OnMove(InputAction.CallbackContext context);
@@ -421,6 +673,16 @@ namespace LD51.Inputs
         {
             void OnMove(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
+        }
+        public interface IConstructionActions
+        {
+            void OnAim(InputAction.CallbackContext context);
+            void OnPlace(InputAction.CallbackContext context);
+            void OnCancel(InputAction.CallbackContext context);
+        }
+        public interface IPrepareTensieActions
+        {
+            void OnCancel(InputAction.CallbackContext context);
         }
     }
 }

@@ -25,6 +25,7 @@ namespace LD51.Game {
 		protected override void EnableState() {
 			base.EnableState();
 			GameCamera.main.SetTarget(tensie.transform);
+			WorldObjectManager.SetHoverWithMouseEnabled(false);
 			spawner.worldObject.SetSelected(true);
 			tensie.SetSelected(true);
 			tensie.SetGhost(false);

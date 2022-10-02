@@ -18,6 +18,8 @@ namespace LD51.Data.Tensies {
 
 		public void RemoveComponent() => Destroy(this);
 
+		public bool IsAliveEvenWhenNoActionPerformed() => false;
+
 		public TensieActionData.KeyFrame GetKeyFrame() => frame;
 
 		private void Update() {

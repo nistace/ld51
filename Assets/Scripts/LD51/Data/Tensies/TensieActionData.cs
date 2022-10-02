@@ -20,17 +20,23 @@ namespace LD51.Data.Tensies {
 
 		public void Write(KeyFrame frame) => _frames.Add(frame);
 
-		public KeyFrame Read() => _frames.FirstOrDefault(frame => frame.progressInLoop >= GameTime.progressInCurrentLoop) ?? _frames.Last();
+		public KeyFrame Read() {
+			if (_frames.Count == 0) return new KeyFrame();
+			return _frames.FirstOrDefault(frame => frame.progressInLoop >= GameTime.progressInCurrentLoop) ?? _frames.Last();
+		}
 
 		[Serializable]
 		public class KeyFrame {
-			
 			[SerializeField] protected float     _progressInLoop;
 			[SerializeField] protected Vector3   _position;
 			[SerializeField] protected Direction _direction;
 			[SerializeField] protected bool      _interacting;
 			[SerializeField] protected bool      _moving;
-			public                     float     progressInLoop => _progressInLoop;
+
+			public float progressInLoop {
+				get => _progressInLoop;
+				set => _progressInLoop = value;
+			}
 
 			public Vector3 position {
 				get => _position;
@@ -50,10 +56,6 @@ namespace LD51.Data.Tensies {
 			public bool moving {
 				get => _moving;
 				set => _moving = value;
-			}
-
-			public KeyFrame() {
-				_progressInLoop = GameTime.progressInCurrentLoop;
 			}
 		}
 	}

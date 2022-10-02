@@ -75,7 +75,13 @@ namespace LD51.Data {
 			public IReadOnlyList<Sprite> frames      => _sprites;
 
 			public Sprite this[int index] {
-				get => _sprites[index % _sprites.Length];
+				get {
+					if (_sprites.Length == 0) {
+						Debug.LogWarning("No sprite in Tag" + _name);
+						return null;
+					}
+					return _sprites[index % _sprites.Length];
+				}
 				internal set {
 					if (_sprites.Length <= index) Array.Resize(ref _sprites, index + 1);
 					_sprites[index] = value;

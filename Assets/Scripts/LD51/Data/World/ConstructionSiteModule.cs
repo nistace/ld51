@@ -17,9 +17,11 @@ namespace LD51.Data.World {
 		[SerializeField] protected WorldObject          _resultPrefab;
 		[SerializeField] protected Sprite               _actionIcon;
 
-		public  WorldObject                   worldObject      => _worldObject ? _worldObject : _worldObject = GetComponent<WorldObject>();
-		public  WorldObject                   resultPrefab     => _resultPrefab;
-		private Dictionary<GameResource, int> missingResources { get; } = new Dictionary<GameResource, int>();
+		private ConstructionGhost                 ghost             { get; set; }
+		public  WorldObject                       worldObject       => _worldObject ? _worldObject : _worldObject = GetComponent<WorldObject>();
+		public  WorldObject                       resultPrefab      => _resultPrefab;
+		public  IReadOnlyList<GameResourceAmount> requiredResources => _requiredResources;
+		private Dictionary<GameResource, int>     missingResources  { get; } = new Dictionary<GameResource, int>();
 
 		public static Event onConstructionComplete { get; } = new Event();
 
@@ -59,10 +61,14 @@ namespace LD51.Data.World {
 		public TensieAnimation GetTensieUpAnimation() => TensieAnimation.KickUp;
 
 		public Sprite GetActionIcon() => _actionIcon;
-
-		public string GetOverridenTag() => "construction";
+		public string GetOverridenTag() => ghost ? null : "construction";
 		public Sprite GetInfoActionSprite() => _actionIcon;
 		public bool IsInfoResourceSetAmountRelevant() => true;
 		public IReadOnlyDictionary<GameResource, int> GetResourceSet() => missingResources;
+
+		public ConstructionGhost MakeGhost() {
+			ghost = this.GetOrAddComponent<ConstructionGhost>();
+			return ghost;
+		}
 	}
 }

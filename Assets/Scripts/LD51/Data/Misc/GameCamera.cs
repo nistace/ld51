@@ -23,6 +23,8 @@ namespace LD51.Data.Misc {
 		[SerializeField]                        protected float      _zoomSmoothTime = .9f;
 		[SerializeField]                        protected int        _hasToReleaseBeforeMoving;
 
+		public new Camera camera => _camera;
+
 		private void Reset() => _camera = GetComponent<Camera>();
 
 		private void Awake() {

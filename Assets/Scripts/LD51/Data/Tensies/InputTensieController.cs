@@ -1,4 +1,5 @@
-﻿using LD51.Inputs;
+﻿using LD51.Data.Misc;
+using LD51.Inputs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils.Extensions;
@@ -18,7 +19,7 @@ namespace LD51.Data.Tensies {
 			GameInput.controls.Tensie.Interact.AddAnyListenerOnce(HandelInteractInput);
 			tensie.actionData.Clear();
 			rigidbody.bodyType = RigidbodyType2D.Dynamic;
-			lastKeyFrame = new TensieActionData.KeyFrame { direction = Direction.Down, interacting = false, position = transform.position };
+			lastKeyFrame = new TensieActionData.KeyFrame { progressInLoop = 0, direction = Direction.Down, interacting = false, position = transform.position };
 			tensie.interactor.SetShowHoversEnabled(true);
 		}
 
@@ -30,12 +31,18 @@ namespace LD51.Data.Tensies {
 			tensie.interactor.SetShowHoversEnabled(false);
 		}
 
+		public bool IsAliveEvenWhenNoActionPerformed() => true;
+
 		public TensieActionData.KeyFrame GetKeyFrame() => lastKeyFrame;
 
 		private void Update() {
 			var movement = interacting ? Vector3.zero : (Vector3)GameInput.controls.Tensie.Move.ReadValue<Vector2>();
 			lastKeyFrame = new TensieActionData.KeyFrame {
-				position = transform.position, direction = GetDirection(movement), interacting = interacting, moving = Mathf.Max(Mathf.Abs(movement.x), Mathf.Abs(movement.y)) > .1f
+				progressInLoop = GameTime.progressInCurrentLoop,
+				position = transform.position,
+				direction = GetDirection(movement),
+				interacting = interacting,
+				moving = Mathf.Max(Mathf.Abs(movement.x), Mathf.Abs(movement.y)) > .1f
 			};
 			tensie.actionData.Write(lastKeyFrame);
 			rigidbody.velocity = movement == Vector3.zero ? Vector3.zero : movement * tensie.data.movementSpeed;

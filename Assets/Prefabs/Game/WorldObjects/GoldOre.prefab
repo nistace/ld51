@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: _layerName
       value: goldOre
       objectReference: {fileID: 0}
+    - target: {fileID: 3502138992548761363, guid: cdcee89f9347bb14fa182bcd66bb06a0, type: 3}
+      propertyPath: _widthInCells
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3504391513937637752, guid: cdcee89f9347bb14fa182bcd66bb06a0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -214,8 +218,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.35}
-  m_Size: {x: 0.9, y: 0.6}
+  m_Offset: {x: 0, y: 0.4}
+  m_Size: {x: 1.4, y: 0.6}
   m_Direction: 1
 --- !u!114 &2393829744616537454
 MonoBehaviour:

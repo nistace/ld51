@@ -1,10 +1,11 @@
 ﻿using System.Collections;
-using LD51.Data;
 using LD51.Data.Misc;
 using LD51.Data.Tensies;
 using LD51.Data.World;
+using LD51.Inputs;
 using UnityEngine;
 using Utils.Coroutines;
+using Utils.Extensions;
 
 namespace LD51.Game {
 	public class CountdownBeforeCharacterState : AbstractStateBehaviour {
@@ -23,6 +24,7 @@ namespace LD51.Game {
 		protected override void EnableState() {
 			base.EnableState();
 			spawnerModule.worldObject.SetSelected(true);
+			WorldObjectManager.SetHoverWithMouseEnabled(true);
 			newTensie.SetSelected(true);
 			newTensie.SetGhost(true);
 			GameCamera.main.SetTarget(spawnerModule.transform);
@@ -30,12 +32,25 @@ namespace LD51.Game {
 		}
 
 		private IEnumerator DoCountdown() {
-			while (!GameTime.justStartedNewLoop) yield return null;
-			if (spawnerModule.assignedTensie) Object.Destroy(spawnerModule.assignedTensie.gameObject);
-			DefineCharacterActionState.state.PrepareState(spawnerModule, newTensie);
-			ChangeState(DefineCharacterActionState.state);
+			var cancelled = false;
+			while (!cancelled && !GameTime.justStartedNewLoop) {
+				cancelled = GameInput.controls.PrepareTensie.Cancel.WasPerformedThisFrame();
+				yield return null;
+			}
+			if (cancelled) {
+				Object.Destroy(newTensie.gameObject);
+				spawnerModule.worldObject.SetSelected(false);
+				ChangeState(OverviewGameState.state);
+			}
+			else {
+				if (spawnerModule.assignedTensie) Object.Destroy(spawnerModule.assignedTensie.gameObject);
+				DefineCharacterActionState.state.PrepareState(spawnerModule, newTensie);
+				ChangeState(DefineCharacterActionState.state);
+			}
 		}
 
-		protected override void SetListenersEnabled(bool enabled) { }
+		protected override void SetListenersEnabled(bool enabled) {
+			GameInput.controls.PrepareTensie.Cancel.SetEnabled(enabled);
+		}
 	}
 }

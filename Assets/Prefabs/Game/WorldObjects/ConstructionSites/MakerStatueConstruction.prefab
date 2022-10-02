@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8178207748834586987
+--- !u!1001 &5305451955382457271
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1991856754790622558, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_Size.x
-      value: 1.8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1991856754790622558, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_Size.y
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1991856754790622558, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_Offset.y
-      value: 0.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2856035599223624352, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_AnchorMax.y
@@ -37,15 +37,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4436458967076870112, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_Name
-      value: GranaryConstruction
+      value: MakerStatueConstruction
       objectReference: {fileID: 0}
     - target: {fileID: 4436458967076870113, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _layerName
-      value: granary
+      value: makerStatue
       objectReference: {fileID: 0}
     - target: {fileID: 4436458967076870113, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _widthInCells
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4436458967076870115, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_RootOrder
@@ -90,14 +90,6 @@ PrefabInstance:
     - target: {fileID: 4436458967076870115, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4870720807757695751, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
-      propertyPath: m_Size.x
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5005055650535698386, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5172431990701916330, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_AnchorMax.y
@@ -150,15 +142,39 @@ PrefabInstance:
     - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _resultPrefab
       value: 
-      objectReference: {fileID: 4436458967076870113, guid: b04a37342e819a64896aea0c77074676, type: 3}
+      objectReference: {fileID: 4436458967076870113, guid: bc4eea4d8a49ab84fac0ac40a883c227, type: 3}
     - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: _timeToAddOneResource
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
-      propertyPath: _requiredResources.Array.data[0]._amount
-      value: 40
+      propertyPath: _requiredResources.Array.size
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _requiredResources.Array.data[0]._amount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _requiredResources.Array.data[1]._amount
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _requiredResources.Array.data[2]._amount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _requiredResources.Array.data[0]._resource
+      value: 
+      objectReference: {fileID: 11400000, guid: d28f5d803e67a3f4993b3c46f4019fb2, type: 2}
+    - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _requiredResources.Array.data[1]._resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f18fa9ef0d442843a9e737676adf26c, type: 2}
+    - target: {fileID: 8447679896920572069, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
+      propertyPath: _requiredResources.Array.data[2]._resource
+      value: 
+      objectReference: {fileID: 11400000, guid: e2a3d9a01a40b934e9173ce632ce3f40, type: 2}
     - target: {fileID: 8912112772141949686, guid: cc9a6ec0443b6c44db00321f02fa8881, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

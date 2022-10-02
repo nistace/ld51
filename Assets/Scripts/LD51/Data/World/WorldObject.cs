@@ -15,14 +15,24 @@ namespace LD51.Data.World {
 		[SerializeField] protected SpriteRenderer    _renderer;
 		[SerializeField] protected bool              _hovered;
 		[SerializeField] protected bool              _selected;
+		[SerializeField] protected int               _widthInCells;
 
 		public IWorldObjectVisualHandler visualHandler { get; set; }
 		public IWorldObjectInfoSource    infoSource    { get; set; }
+		public int                       widthInCells  => _widthInCells;
 
 		public        BoolEvent onHoverChanged { get; } = new BoolEvent();
 		public static Event     onClicked      { get; } = new Event();
 
-		private void RefreshVisuals() => _renderer.sprite = SpriteAtlasLibrary.buildings[_layerName][GetVisualTag()][GameTime.animationFrame];
+		public Sprite GetDefaultWhiteOutlineSprite() {
+			if (!SpriteAtlasLibrary.loaded) return null;
+			return SpriteAtlasLibrary.buildings[_layerName]["default-white"][0];
+		}
+
+		public void RefreshVisuals() {
+			if (!SpriteAtlasLibrary.loaded) return;
+			_renderer.sprite = SpriteAtlasLibrary.buildings[_layerName][GetVisualTag()][GameTime.animationFrame];
+		}
 
 		private string GetVisualTag() {
 			var baseTag = visualHandler?.GetOverridenTag() ?? "default";
