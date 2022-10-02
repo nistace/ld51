@@ -2,7 +2,7 @@
 using LD51.Data.GameResources;
 using UnityEngine;
 
-namespace LD51.Data.Tensies {
+namespace LD51.Data.Tensies.Ui {
 	public class TensieInventoryUi : MonoBehaviour {
 		[SerializeField] private TensieInventoryLineUi _itemTemplate;
 

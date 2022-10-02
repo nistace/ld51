@@ -8,6 +8,7 @@
 		KickUp,
 		KickLeft,
 		KickDown,
-		KickRight
+		KickRight,
+		Dunno
 	}
 }

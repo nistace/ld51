@@ -13,6 +13,16 @@ namespace LD51.Data.World {
 			buildings.AddAll(Object.FindObjectsOfType<WorldObject>());
 			buildings.ForEach(t => t.SetSelected(false));
 			GameInventory.foodConsumption = buildings.SelectNotNullComponents<TensieSpawnerModule>().Count();
+			ConstructionSiteModule.onConstructionComplete.AddListenerOnce(HandleConstructionComplete);
+		}
+
+		private static void HandleConstructionComplete(ConstructionSiteModule constructionSite) {
+			var newConstruction = Object.Instantiate(constructionSite.resultPrefab, constructionSite.transform.position, Quaternion.identity, null);
+			if (newConstruction.GetComponent<TensieSpawnerModule>()) GameInventory.foodConsumption++;
+			newConstruction.SetSelected(false);
+			buildings.Add(newConstruction);
+			Object.Destroy(constructionSite.gameObject);
+			buildings.Remove(constructionSite.worldObject);
 		}
 
 		public static void SetHoverWithMouseEnabled(bool enabled) {

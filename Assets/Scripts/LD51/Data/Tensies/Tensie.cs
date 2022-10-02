@@ -1,5 +1,6 @@
 ﻿using LD51.Data.GameResources;
 using LD51.Data.Misc;
+using LD51.Data.Tensies.Ui;
 using UnityEngine;
 
 namespace LD51.Data.Tensies {
@@ -17,31 +18,24 @@ namespace LD51.Data.Tensies {
 		[SerializeField] protected Inventory        _inventory = new Inventory();
 		[SerializeField] protected float            _progress;
 
-		public ITensieController controller { get; set; }
-		public TensieActionData  actionData => _actionData;
-		public TensieSharedData  data       => _data;
-		public Inventory         inventory  => _inventory;
-		public TensieInteractor  interactor => _interactor;
+		public  ITensieController controller { get; set; }
+		public  TensieActionData  actionData => _actionData;
+		public  TensieSharedData  data       => _data;
+		public  Inventory         inventory  => _inventory;
+		public  TensieInteractor  interactor => _interactor;
+		private TensieAnimation   animation  { get; set; } = TensieAnimation.Idle;
 
 		public void SetGhost(bool ghost) {
 			_ghost = ghost;
 			_collider.enabled = !ghost;
-			RefreshVisuals();
 		}
 
-		public void SetHovered(bool hovered) {
-			_hovered = hovered;
-			RefreshVisuals();
-		}
-
-		public void SetSelected(bool selected) {
-			_selected = selected;
-			RefreshVisuals();
-		}
+		public void SetHovered(bool hovered) => _hovered = hovered;
+		public void SetSelected(bool selected) => _selected = selected;
 
 		private void RefreshVisuals() {
 			_renderer.color = _ghost ? _data.ghostColor : Color.white;
-			_renderer.sprite = SpriteAtlasLibrary.characters[GetLayerName()][$"{controller?.GetKeyFrame()?.animation ?? TensieAnimation.Idle}"][Mathf.FloorToInt(Time.time * _data.animationSpeed)];
+			_renderer.sprite = SpriteAtlasLibrary.characters[GetLayerName()][$"{animation}"][GameTime.animationFrame];
 		}
 
 		private string GetLayerName() {
@@ -53,22 +47,33 @@ namespace LD51.Data.Tensies {
 		private void Update() {
 			if (GameTime.justStartedNewLoop) inventory.Clear();
 			var keyFrame = controller?.GetKeyFrame();
-			ITensieInteractable interactable = null;
+			ITensieInteractable interactedWith = null;
 			if (keyFrame != null) {
 				interactor.SetDirection(keyFrame.direction);
-				if (keyFrame.interacting && interactor.TryGetInteractable(out interactable)) {
-					interactable.ContinueInteraction(this, ref _progress);
+				if (keyFrame.interacting && interactor.TryGetInteractable(out var interactable)) {
+					if (interactable.ContinueInteraction(this, ref _progress)) interactedWith = interactable;
 				}
 			}
-			if ((!keyFrame?.interacting ?? true) || interactable == null) _progress = 0;
-			RefreshInfoUi(keyFrame?.interacting ?? false, interactable);
+			if ((!keyFrame?.interacting ?? true) || interactedWith == null) _progress = 0;
+			RefreshInfoUi(keyFrame?.interacting ?? false, interactedWith);
+			animation = EvalAnimation(keyFrame, interactedWith);
 			RefreshVisuals();
 		}
 
-		private void RefreshInfoUi(bool tryingToInteract, ITensieInteractable interactable) {
-			if (tryingToInteract && interactable != null) _infoUi.progress.Show(interactable.GetActionIcon(), _progress / interactable.GetRequiredTime());
+		private static TensieAnimation EvalAnimation(TensieActionData.KeyFrame keyFrame, ITensieInteractable interactedWith) {
+			if (keyFrame == null) return TensieAnimation.Idle;
+			if (keyFrame.interacting && interactedWith == null) return TensieAnimation.Dunno;
+			if (keyFrame.interacting) return GetDirectionalAnimation(interactedWith.GetTensieUpAnimation(), keyFrame.direction);
+			if (keyFrame.moving) return GetDirectionalAnimation(TensieAnimation.WalkUp, keyFrame.direction);
+			return TensieAnimation.Idle;
+		}
+
+		private static TensieAnimation GetDirectionalAnimation(TensieAnimation upAnimation, Direction direction) => (TensieAnimation)((int)upAnimation + (int)direction);
+
+		private void RefreshInfoUi(bool tryingToInteract, ITensieInteractable interactedWith) {
+			if (tryingToInteract && interactedWith != null) _infoUi.progress.Show(interactedWith.GetActionIcon(), _progress);
 			else _infoUi.progress.Hide();
-			_infoUi.SetQuestionMarkVisible(tryingToInteract && interactable == null);
+			_infoUi.SetQuestionMarkVisible(tryingToInteract && interactedWith == null);
 			_infoUi.inventory.Refresh(inventory);
 		}
 	}

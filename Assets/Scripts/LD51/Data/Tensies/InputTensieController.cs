@@ -18,7 +18,7 @@ namespace LD51.Data.Tensies {
 			GameInput.controls.Tensie.Interact.AddAnyListenerOnce(HandelInteractInput);
 			tensie.actionData.Clear();
 			rigidbody.bodyType = RigidbodyType2D.Dynamic;
-			lastKeyFrame = new TensieActionData.KeyFrame { animation = TensieAnimation.Idle, direction = Direction.Down, interacting = false, position = transform.position };
+			lastKeyFrame = new TensieActionData.KeyFrame { direction = Direction.Down, interacting = false, position = transform.position };
 			tensie.interactor.SetShowHoversEnabled(true);
 		}
 
@@ -33,13 +33,11 @@ namespace LD51.Data.Tensies {
 		public TensieActionData.KeyFrame GetKeyFrame() => lastKeyFrame;
 
 		private void Update() {
-			var newKeyFrame = new TensieActionData.KeyFrame { interacting = interacting };
 			var movement = interacting ? Vector3.zero : (Vector3)GameInput.controls.Tensie.Move.ReadValue<Vector2>();
-			newKeyFrame.direction = GetDirection(movement);
-			newKeyFrame.animation = GetAnimation(newKeyFrame.direction, movement);
-			newKeyFrame.position = transform.position;
-			tensie.actionData.Write(newKeyFrame);
-			lastKeyFrame = newKeyFrame;
+			lastKeyFrame = new TensieActionData.KeyFrame {
+				position = transform.position, direction = GetDirection(movement), interacting = interacting, moving = Mathf.Max(Mathf.Abs(movement.x), Mathf.Abs(movement.y)) > .1f
+			};
+			tensie.actionData.Write(lastKeyFrame);
 			rigidbody.velocity = movement == Vector3.zero ? Vector3.zero : movement * tensie.data.movementSpeed;
 		}
 
@@ -51,19 +49,6 @@ namespace LD51.Data.Tensies {
 			if (movement.y < -.1f) return Direction.Down;
 			return lastKeyFrame.direction;
 		}
-
-		private TensieAnimation GetAnimation(Direction direction, Vector3 movement) {
-			if (interacting) {
-				if (tensie.interactor.TryGetInteractable(out var interactable)) {
-					return GetDirectionalAnimation(interactable.GetTensieUpAnimation(), direction);
-				}
-				return TensieAnimation.Idle;
-			}
-			if (movement.sqrMagnitude > .01f) return GetDirectionalAnimation(TensieAnimation.WalkUp, direction);
-			return TensieAnimation.Idle;
-		}
-
-		private static TensieAnimation GetDirectionalAnimation(TensieAnimation upAnimation, Direction direction) => (TensieAnimation)((int)upAnimation + (int)direction);
 
 		public void RemoveComponent() => Destroy(this);
 	}

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.EditorCoroutines.Editor;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Utils.Extensions;
@@ -67,5 +70,20 @@ namespace LD51.Data.World {
 			public string name        => _name;
 			public float  probability => _probability;
 		}
+
+#if UNITY_EDITOR
+
+		[ContextMenu("Preview")] private void Preview() {
+			EditorCoroutineUtility.StartCoroutine(DoPreview(), this);
+		}
+
+		private IEnumerator DoPreview() {
+			var guids = AssetDatabase.FindAssets($"t:{nameof(SpriteAtlasLibrary)}");
+			SpriteAtlasLibrary.instance = AssetDatabase.LoadAssetAtPath<SpriteAtlasLibrary>(AssetDatabase.GUIDToAssetPath(guids[0]));
+			yield return EditorCoroutineUtility.StartCoroutineOwnerless(SpriteAtlasLibrary.grounds.Build());
+			Rebuild();
+		}
+
+#endif
 	}
 }

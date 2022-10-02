@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace LD51.Data.Tensies {
+namespace LD51.Data.Tensies.Ui {
 	public class TensieProgressUi : MonoBehaviour {
 		[SerializeField] protected Image _background;
 		[SerializeField] protected Image _transparent;

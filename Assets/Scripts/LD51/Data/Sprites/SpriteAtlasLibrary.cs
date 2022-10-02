@@ -18,6 +18,8 @@ namespace LD51.Data {
 		public static SpriteAtlas resourcesAtlas => instance._resourcesAtlas;
 		public static bool        loaded         { get; private set; }
 
+		public SpriteAtlas groundAtlas => _groundAtlas;
+
 		public IEnumerator BuildAll() {
 			loaded = false;
 			yield return CoroutineRunner.Run(_groundAtlas.Build());

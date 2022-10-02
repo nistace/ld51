@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LD51.Data.Tensies {
+namespace LD51.Data.Tensies.Ui {
 	public class TensieInventoryLineUi : MonoBehaviour {
 		[SerializeField] protected Image    _icon;
 		[SerializeField] protected TMP_Text _amountText;

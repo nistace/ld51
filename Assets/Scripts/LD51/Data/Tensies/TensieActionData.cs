@@ -24,18 +24,13 @@ namespace LD51.Data.Tensies {
 
 		[Serializable]
 		public class KeyFrame {
-			[SerializeField] protected float           _progressInLoop;
-			[SerializeField] protected Vector3         _position;
-			[SerializeField] protected TensieAnimation _animation;
-			[SerializeField] protected Direction       _direction;
-			[SerializeField] protected bool            _interacting;
-
-			public float progressInLoop => _progressInLoop;
-
-			public TensieAnimation animation {
-				get => _animation;
-				set => _animation = value;
-			}
+			
+			[SerializeField] protected float     _progressInLoop;
+			[SerializeField] protected Vector3   _position;
+			[SerializeField] protected Direction _direction;
+			[SerializeField] protected bool      _interacting;
+			[SerializeField] protected bool      _moving;
+			public                     float     progressInLoop => _progressInLoop;
 
 			public Vector3 position {
 				get => _position;
@@ -50,6 +45,11 @@ namespace LD51.Data.Tensies {
 			public bool interacting {
 				get => _interacting;
 				set => _interacting = value;
+			}
+
+			public bool moving {
+				get => _moving;
+				set => _moving = value;
 			}
 
 			public KeyFrame() {
