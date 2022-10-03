@@ -71,5 +71,7 @@ namespace LD51.Data.World {
 			_infoUi.actionImage.Show(infoSource?.GetInfoActionSprite());
 			_infoUi.resourceSet.Refresh(infoSource?.GetResourceSet(), infoSource?.IsInfoResourceSetAmountRelevant() ?? false);
 		}
+
+		public bool IsMakerStatue() => _layerName == "makerStatue";
 	}
 }

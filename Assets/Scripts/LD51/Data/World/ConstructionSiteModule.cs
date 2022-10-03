@@ -70,5 +70,7 @@ namespace LD51.Data.World {
 			ghost = this.GetOrAddComponent<ConstructionGhost>();
 			return ghost;
 		}
+
+		[ContextMenu("Finish")] public void Finish() => onConstructionComplete.Invoke(this);
 	}
 }

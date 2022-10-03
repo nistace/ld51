@@ -16,3 +16,4 @@ MonoBehaviour:
   _buildingAtlas: {fileID: 11400000, guid: f0648d7ffbb47c244afd0094c313484b, type: 2}
   _characterAtlas: {fileID: 11400000, guid: e7b092706ec33954596e47369ff0bd87, type: 2}
   _resourcesAtlas: {fileID: 11400000, guid: b8ade8725fc33424ba952f27ddb833f0, type: 2}
+  _portraitsAtlas: {fileID: 11400000, guid: a115a32905cfcdd43b696b08693eb4d4, type: 2}

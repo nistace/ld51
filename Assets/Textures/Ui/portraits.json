@@ -1,0 +1,97 @@
+{ "frames": [
+   {
+    "filename": "Base..0",
+    "frame": { "x": 1, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "EyeColor1..0",
+    "frame": { "x": 131, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "EyeColor2..0",
+    "frame": { "x": 261, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "EyePatch..0",
+    "frame": { "x": 391, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "LeftEarPiercing..0",
+    "frame": { "x": 521, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "Mustache..0",
+    "frame": { "x": 651, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "NosePiercing..0",
+    "frame": { "x": 781, "y": 1, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   },
+   {
+    "filename": "Beard..0",
+    "frame": { "x": 1, "y": 130, "w": 128, "h": 127 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 1, "w": 128, "h": 127 },
+    "sourceSize": { "w": 128, "h": 128 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "portraits.png",
+  "format": "RGBA8888",
+  "size": { "w": 1024, "h": 258 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Base", "opacity": 255, "blendMode": "normal" },
+   { "name": "EyeColor1", "opacity": 255, "blendMode": "normal" },
+   { "name": "EyeColor2", "opacity": 255, "blendMode": "normal" },
+   { "name": "EyePatch", "opacity": 255, "blendMode": "normal" },
+   { "name": "LeftEarPiercing", "opacity": 255, "blendMode": "normal" },
+   { "name": "Mustache", "opacity": 255, "blendMode": "normal" },
+   { "name": "NosePiercing", "opacity": 255, "blendMode": "normal" },
+   { "name": "Beard", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

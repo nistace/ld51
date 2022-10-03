@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using LD51.Data.Misc;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LD51.Data.GameResources {
 	public class GameInventory : MonoBehaviour {
@@ -10,6 +11,8 @@ namespace LD51.Data.GameResources {
 		[SerializeField] protected GameResourceAmount[] _resourcesOnStart;
 		[SerializeField] protected GameResource[]       _resourceOrder;
 		[SerializeField] protected int                  _foodConsumption;
+
+		public static UnityEvent onNoFoodLeft { get; } = new UnityEvent();
 
 		public static int foodConsumption {
 			get => instance._foodConsumption;
@@ -35,7 +38,7 @@ namespace LD51.Data.GameResources {
 				inventory.Take(foodResource, amountToTake);
 				remainingToTake -= amountToTake;
 			}
-			if (remainingToTake > 0) Debug.Log("Not enough food");
+			if (remainingToTake > 0) onNoFoodLeft.Invoke();
 		}
 
 		private void Update() {

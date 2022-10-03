@@ -3,10 +3,13 @@ using System.Linq;
 using LD51.Data.Tensies;
 using LD51.Data.World;
 using UnityEngine;
+using UnityEngine.Events;
 using Utils.Extensions;
 
 namespace LD51.Data.GameResources {
 	public class GameResourceStorageModule : MonoBehaviour, IWorldObjectModule, ITensieInteractable, IWorldObjectInfoSource {
+		public class StoringEvent : UnityEvent<GameResource, int> { }
+
 		[SerializeField] protected WorldObject     _worldObject;
 		[SerializeField] protected GameResource[]  _resources;
 		[SerializeField] protected float           _storeTime         = .5f;
@@ -15,6 +18,8 @@ namespace LD51.Data.GameResources {
 
 		private Dictionary<GameResource, int> infoResources { get; } = new Dictionary<GameResource, int>();
 		public  WorldObject                   worldObject   => _worldObject ? _worldObject : _worldObject = GetComponent<WorldObject>();
+
+		public static StoringEvent onStoredResources { get; } = new StoringEvent();
 
 		private void Start() {
 			worldObject.infoSource = this;
@@ -31,8 +36,10 @@ namespace LD51.Data.GameResources {
 			progress += Time.deltaTime;
 			if (progress >= _storeTime) {
 				foreach (var resource in _resources) {
-					GameInventory.inventory.Add(resource, actor.inventory.Count(resource));
+					var amount = actor.inventory.Count(resource);
+					GameInventory.inventory.Add(resource, amount);
 					actor.inventory.TakeAll(resource);
+					onStoredResources.Invoke(resource, amount);
 				}
 			}
 			return true;
@@ -44,5 +51,8 @@ namespace LD51.Data.GameResources {
 		public Sprite GetInfoActionSprite() => _actionIcon;
 		public bool IsInfoResourceSetAmountRelevant() => false;
 		public IReadOnlyDictionary<GameResource, int> GetResourceSet() => infoResources;
+
+		[ContextMenu("Fake Drop 4 food")] private void FakeDrop4Food() => onStoredResources.Invoke(GameInventory.resourceOrder.First(t => t.food), 4);
+		[ContextMenu("Fake Drop 1 wood")] private void FakeDrop4Wood() => onStoredResources.Invoke(GameInventory.resourceOrder.First(t => t.name == "Wood"), 1);
 	}
 }
