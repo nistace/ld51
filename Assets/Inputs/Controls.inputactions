@@ -401,6 +401,82 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "App",
+            "id": "8a3c7849-31cd-4900-a868-2384eb95cf2b",
+            "actions": [
+                {
+                    "name": "Volume",
+                    "type": "Button",
+                    "id": "ab5cafee-42f1-4241-bfc1-07fadf7fe7df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "VolumeDown",
+                    "type": "Button",
+                    "id": "bce6e3ea-29cb-4b46-bd37-7cbf09436792",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "db956f79-6a6a-4c41-8bfc-836d4af784e9",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Volume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d07b3b9-a26a-4c21-b54a-4c3c52907ad9",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "VolumeDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "1cbf43c4-295d-4b99-baee-f8b524b05f14",
+            "actions": [
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "13c916a9-93a4-4728-9fde-f57800c4cd07",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4ba8fa60-12da-452a-af32-96a1c7cd80e3",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

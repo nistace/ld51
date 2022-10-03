@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using LD51.Data;
+using LD51.Inputs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Utils.Extensions;
 
 namespace LD51 {
 	public class App : MonoBehaviour {
@@ -23,6 +22,13 @@ namespace LD51 {
 
 		private void Start() {
 			StartCoroutine(DoLoad());
+			GameInput.controls.App.Volume.Enable();
+			GameInput.controls.App.VolumeDown.Enable();
+		}
+
+		private void Update() {
+			if (GameInput.controls.App.Volume.inProgress) GameAudio.volume = Mathf.Clamp01(GameAudio.volume + Time.deltaTime);
+			if (GameInput.controls.App.VolumeDown.inProgress) GameAudio.volume = Mathf.Clamp01(GameAudio.volume - Time.deltaTime);
 		}
 
 		private IEnumerator DoLoad() {

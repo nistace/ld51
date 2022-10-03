@@ -425,6 +425,82 @@ namespace LD51.Inputs
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""App"",
+            ""id"": ""8a3c7849-31cd-4900-a868-2384eb95cf2b"",
+            ""actions"": [
+                {
+                    ""name"": ""Volume"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab5cafee-42f1-4241-bfc1-07fadf7fe7df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""VolumeDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""bce6e3ea-29cb-4b46-bd37-7cbf09436792"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""db956f79-6a6a-4c41-8bfc-836d4af784e9"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Volume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d07b3b9-a26a-4c21-b54a-4c3c52907ad9"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VolumeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""1cbf43c4-295d-4b99-baee-f8b524b05f14"",
+            ""actions"": [
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""13c916a9-93a4-4728-9fde-f57800c4cd07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4ba8fa60-12da-452a-af32-96a1c7cd80e3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -445,6 +521,13 @@ namespace LD51.Inputs
             // PrepareTensie
             m_PrepareTensie = asset.FindActionMap("PrepareTensie", throwIfNotFound: true);
             m_PrepareTensie_Cancel = m_PrepareTensie.FindAction("Cancel", throwIfNotFound: true);
+            // App
+            m_App = asset.FindActionMap("App", throwIfNotFound: true);
+            m_App_Volume = m_App.FindAction("Volume", throwIfNotFound: true);
+            m_App_VolumeDown = m_App.FindAction("VolumeDown", throwIfNotFound: true);
+            // Menu
+            m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+            m_Menu_Quit = m_Menu.FindAction("Quit", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -664,6 +747,80 @@ namespace LD51.Inputs
             }
         }
         public PrepareTensieActions @PrepareTensie => new PrepareTensieActions(this);
+
+        // App
+        private readonly InputActionMap m_App;
+        private IAppActions m_AppActionsCallbackInterface;
+        private readonly InputAction m_App_Volume;
+        private readonly InputAction m_App_VolumeDown;
+        public struct AppActions
+        {
+            private @Controls m_Wrapper;
+            public AppActions(@Controls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Volume => m_Wrapper.m_App_Volume;
+            public InputAction @VolumeDown => m_Wrapper.m_App_VolumeDown;
+            public InputActionMap Get() { return m_Wrapper.m_App; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(AppActions set) { return set.Get(); }
+            public void SetCallbacks(IAppActions instance)
+            {
+                if (m_Wrapper.m_AppActionsCallbackInterface != null)
+                {
+                    @Volume.started -= m_Wrapper.m_AppActionsCallbackInterface.OnVolume;
+                    @Volume.performed -= m_Wrapper.m_AppActionsCallbackInterface.OnVolume;
+                    @Volume.canceled -= m_Wrapper.m_AppActionsCallbackInterface.OnVolume;
+                    @VolumeDown.started -= m_Wrapper.m_AppActionsCallbackInterface.OnVolumeDown;
+                    @VolumeDown.performed -= m_Wrapper.m_AppActionsCallbackInterface.OnVolumeDown;
+                    @VolumeDown.canceled -= m_Wrapper.m_AppActionsCallbackInterface.OnVolumeDown;
+                }
+                m_Wrapper.m_AppActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Volume.started += instance.OnVolume;
+                    @Volume.performed += instance.OnVolume;
+                    @Volume.canceled += instance.OnVolume;
+                    @VolumeDown.started += instance.OnVolumeDown;
+                    @VolumeDown.performed += instance.OnVolumeDown;
+                    @VolumeDown.canceled += instance.OnVolumeDown;
+                }
+            }
+        }
+        public AppActions @App => new AppActions(this);
+
+        // Menu
+        private readonly InputActionMap m_Menu;
+        private IMenuActions m_MenuActionsCallbackInterface;
+        private readonly InputAction m_Menu_Quit;
+        public struct MenuActions
+        {
+            private @Controls m_Wrapper;
+            public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Quit => m_Wrapper.m_Menu_Quit;
+            public InputActionMap Get() { return m_Wrapper.m_Menu; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+            public void SetCallbacks(IMenuActions instance)
+            {
+                if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+                {
+                    @Quit.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnQuit;
+                    @Quit.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnQuit;
+                    @Quit.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnQuit;
+                }
+                m_Wrapper.m_MenuActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Quit.started += instance.OnQuit;
+                    @Quit.performed += instance.OnQuit;
+                    @Quit.canceled += instance.OnQuit;
+                }
+            }
+        }
+        public MenuActions @Menu => new MenuActions(this);
         public interface ICameraActions
         {
             void OnMove(InputAction.CallbackContext context);
@@ -683,6 +840,15 @@ namespace LD51.Inputs
         public interface IPrepareTensieActions
         {
             void OnCancel(InputAction.CallbackContext context);
+        }
+        public interface IAppActions
+        {
+            void OnVolume(InputAction.CallbackContext context);
+            void OnVolumeDown(InputAction.CallbackContext context);
+        }
+        public interface IMenuActions
+        {
+            void OnQuit(InputAction.CallbackContext context);
         }
     }
 }
