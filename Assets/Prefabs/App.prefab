@@ -2164,7 +2164,6 @@ MonoBehaviour:
   - 0.7
   _volume: 1
   _alreadyWaited: 0
-  _alreadyPlaying: 0
   _timeToFadeIn: 3
 --- !u!114 &955814319
 MonoBehaviour:
@@ -2215,7 +2214,7 @@ MonoBehaviour:
   - _text: Maker? Can you hear me?
     _unlock: 1
     _effect: 0
-    _buttonText: Continue
+    _buttonText: ...
   - _text: If only you could hear my prayers! I'd like you to know that I'm very
       happy to be a Tensie, inhabitant of Tensec World!<br><br>Our people feel totally
       blessed that you offered them a lifespan of 10 seconds. There is so much room
@@ -2227,51 +2226,60 @@ MonoBehaviour:
       to find room to stock our corpses!
     _unlock: 0
     _effect: 0
-    _buttonText: Continue
+    _buttonText: Makes sense
   - _text: In your honor, we started the construction of a gigantic golden statue.
       We hope it will please you.
     _unlock: 0
     _effect: 3
-    _buttonText: Start Game
+    _buttonText: Start game
   - _text: This is our village. We're very happy to have 3 people in here! More will
-      probably come.<br><br>Look, a Tensie, who I personnaly know, is collecting
-      food to feed the village.
+      probably come.<br><br><i>Use WASD to look around.</i>
     _unlock: 1
     _effect: 0
     _buttonText: Continue
+  - _text: Look, a Tensie - <i>whom I personnaly know</i> - is collecting food to
+      feed the village. When his time will come, his descendants will take over and
+      repeat his actions.
+    _unlock: 0
+    _effect: 0
+    _buttonText: Good
   - _text: Every ten seconds, a new generation starts, and they consume one unit
       of food. It's important to keep some of it in our granaries.
     _unlock: 0
     _effect: 0
-    _buttonText: Continue
+    _buttonText: Okay
   - _text: This Tensie is not perfectly efficent. See how he only collects 3 units
-      of food? He could definitely collect 4!<br><br>ake sure to have enough time
-      to bring the food to the granary, or everything will be lost!
+      of food? He could definitely collect 4!
     _unlock: 0
     _effect: 0
-    _buttonText: Continue
-  - _text: Help him optimize his lifespan!<br><br>[Click the Tensie's house to define
-      his actions. First, you have to wait until the next generation starts, then
-      press WASD to move and SPACE to interact.]
+    _buttonText: Agreed
+  - _text: '<i>Click the Tensie''s house to define his actions. Wait until the next
+      generation starts, then press WASD to move and SPACE to interact.</i><br><br><#00BAFF>Goal:
+      Collect 4 units of food and bring it to the granary in one go.'
     _unlock: 0
     _effect: 0
     _buttonText: Got it!
-  - _text: Good job! Now, see the other two houses? With smoke coming out of the
+  - _text: 'Good job! Now, see the other two houses? With smoke coming out of the
       chimney, door closed, and lights on? The Tensies who live there are probably
       enjoying their life, sitting on a stool! Maybe they could collect wood, and
-      bring it to the depot?
+      bring it to the depot?<br><br><#00BAFF>Goal: Collect wood and bring it to the
+      depot.'
     _unlock: 3
     _effect: 1
     _buttonText: Will do
-  - _text: Perfect! We should built more houses, or granaries and depots to make
-      paths shorter.<br><br>[Click the "Construction" button to list possible constructions.
-      Select the one you want to build and place it. You need to send Tensies to
-      build it before it can be used!]
+  - _text: Perfect! We should build more houses, granaries and depots!
     _unlock: 4
     _effect: 0
+    _buttonText: Makes sense
+  - _text: '<i>Click the "Construction" button to list possible constructions. Place
+      one of them and assign a Tensie to build it.</i><br><br><#00BAFF>Goal: Build
+      something.'
+    _unlock: 0
+    _effect: 0
     _buttonText: Is that so
-  - _text: The village never looked so good! It's time to focus on this construction
-      site, north of the village. Let's make this amazing Maker Statue I mentioned!
+  - _text: 'The village never looked so good! It''s time to focus on this construction
+      site, north of the village. Let''s make this amazing Maker Statue I mentioned!<br><br><#00BAFF>Goal:
+      Build the Maker Statue.'
     _unlock: 5
     _effect: 2
     _buttonText: Okay
@@ -2279,13 +2287,14 @@ MonoBehaviour:
       Maker.<br><br>I hope you share my enthousiasm! '
     _unlock: 2
     _effect: 5
-    _buttonText: Continue
+    _buttonText: Myeah
   - _text: Maybe you could consider increasing our life expectancy? Not much, 1 more
       second, or something...?
     _unlock: 0
     _effect: 0
     _buttonText: No
-  - _text: Ow. Well... Thanks anyway!
+  - _text: 'Ow. Well... Thanks anyway!<br><br<<#00BAFF>Goal: Nothing. You''re done.
+      Thanks for playing!'
     _unlock: 0
     _effect: 4
     _buttonText: That's it!
